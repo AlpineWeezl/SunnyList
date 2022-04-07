@@ -88,10 +88,6 @@ const handleCreateTask = (e) => {
         ["taskDueDate", ""],
         ["taskDone", false]
     ];
-    localStorage.setItem(id, JSON.stringify(itemToStore));
-    createNewTask(id, newTaskName, "", "");
-    document.getElementById("newTaskName").value = "";
-    console.log(localStorage.length);
     document.getElementById("newTaskName").value = "";
     createNewTask(id, newTaskName, "", "");
     storeItem(id, itemToStore);
