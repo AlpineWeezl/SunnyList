@@ -45,17 +45,15 @@ const view = {
     },
 
     render: () => {
-        this.clearList;
+        view.clearList();
         const allTodos = model.todoList.todos;
         if (allTodos != null && allTodos != undefined) {
             const todoListHTML = document.getElementById("todoList");
             if (allTodos != null) {
                 allTodos.forEach((todo) => {
-                    const todoListHTML = document.getElementById("todoList");
                     const newTodoItem = document.createElement("div");
                     newTodoItem.id = `taskItem-${todo.id}`;
                     newTodoItem.className = `accordion-item`;
-                    todoListHTML.appendChild(newTodoItem);
                     newTodoItem.innerHTML = `
                                 <h2 class="accordion-header" id="heading-${todo.id}">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" name="accordion-button-${todo.id}"
@@ -101,7 +99,9 @@ const view = {
                                         </form>
                                     </div>
                                 </div>
-                    `
+                            `
+                            
+                    todoListHTML.appendChild(newTodoItem);
                 });
             }
         }
@@ -122,6 +122,7 @@ const controller = {
         if (JSON.parse(localStorage.getItem('TodoList') != undefined && JSON.parse(localStorage.getItem('TodoList') != null))) {
             const loadedModel = JSON.parse(localStorage.getItem('TodoList'));
             console.log(loadedModel);
+            model.todoList.nextId = loadedModel._nextId;
             loadedModel._todos.forEach((element) => {
                 console.log(element);
                 model.todoList.todos.push(new Todo(element._id, element._name, element._description, element._check, element.dueDate));
@@ -138,9 +139,9 @@ const controller = {
             const newId = model.todoList.nextId;
             model.todoList.todos.push(new Todo(newId, document.getElementById("newTodoName").value));
             document.getElementById("newTodoName").value = "";
-            view.render();
             model.todoList.nextId++;
             controller.storeList();
+            view.render();
             return false;
         }
     },
