@@ -19,9 +19,9 @@
     </header>
     <main>
         <section>
-            <form id="newTask">
-                <input type="text" name="newTaskName" id="newTaskName" placeholder="enter the taskname">
-                <button class="btn btn-success" type="submit"><i class="fa fa-save" aria-hidden="true"></i></button>
+            <form id="newTodo">
+                <input type="text" name="newTodoName" id="newTodoName" placeholder="enter the todo name">
+                <button class="btn btn-success" type="button" onclick="controller.addTodo(event)"><i class="fa fa-save" aria-hidden="true"></i></button>
             </form>
         </section>
         <aside id="filterRange">
@@ -40,7 +40,7 @@
             </div>
         </aside>
         <section>
-            <div id="taskList" class="accordion">
+            <div id="todoList" class="accordion">
             </div>
         </section>
     </main>
