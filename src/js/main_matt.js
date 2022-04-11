@@ -1,25 +1,11 @@
 "use strict";
-const newTaskForm = document.getElementById("newTask");
-const taskList = document.getElementById("taskList");
+const newTaskForm = document.getElementById("newTodo");
+const taskList = document.getElementById("todoList");
 window.onload = loadTaskItems;
-
-function getNewId() {
-    let id = 0;
-    for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        console.log(key);
-        if (key > id) {
-            id = key;
-        } else {
-            id = id;
-        }
-    }
-    return parseInt(id) + 1;
-}
 
 function createNewTask(id, taskName, taskDescription, taskDueDate, taskDone) {
     const newTaskItem = document.createElement("div");
-    newTaskItem.setAttribute("id", `taskItem-${id}`);
+    newTaskItem.setAttribute("id", `todoItem-${id}`);
     newTaskItem.setAttribute("class", "accordion-item");
     taskList.append(newTaskItem);
     newTaskItem.innerHTML = `
@@ -88,8 +74,14 @@ const handleCreateTask = (e) => {
         ["taskDueDate", ""],
         ["taskDone", false]
     ];
+<<<<<<< HEAD
     document.getElementById("newTaskName").value = "";
     createNewTask(id, newTaskName, "", "");
+=======
+    localStorage.setItem(id, JSON.stringify(itemToStore));
+    createNewTask(id, newTaskName, "", "");
+    document.getElementById("newTaskName").value = "";
+>>>>>>> matt_oop_JS
     storeItem(id, itemToStore);
 };
 
