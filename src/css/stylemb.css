@@ -1,0 +1,95 @@
+html {
+    box-sizing: border-box;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+   font-family:
+   -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+   line-height: 1.4;
+  }
+
+#checkboxContainer {
+    text-align: center;
+    padding-top: 15px;
+}
+
+#accordionExample .done .row .col-sm-11 .accordion-header .accordion-button     {
+    text-decoration: line-through;
+}
+
+#newTask  {
+  margin-top: 50px;
+  text-align: center;
+}
+
+#newTask > form {
+  margin: 50px;
+}
+
+#newTask > form > .row > .col > input {
+  width: auto;
+}
+
+.todo-form > .row {
+  width: 40%;
+  margin: auto;
+}
+
+.col-button {
+  
+}
+
+/* Add this below all the other styles */
+
+.empty-state {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.checklist-icon {
+  margin-bottom: 20px;
+}
+
+.empty-state__title, .empty-state__description {
+  margin-bottom: 20px;
+}
+
+/* Change `display: flex` to `display: none` */
+.empty-state {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: block;
+  text-align: center;
+}
+
+/* Add this below the other styles */
+#accordionExample:empty {
+  display: none;
+  background-color: blue;
+}
+
+.todo-list:empty + .empty-state {
+  display: flex;
+}
+
+.accordion-button::after  {
+  
+}
+
+header {
+  background-color: #0d6efd;
+}
+
+.navbar-nav {
+  text-align: right;
+}
