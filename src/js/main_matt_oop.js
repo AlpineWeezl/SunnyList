@@ -31,6 +31,11 @@ class TodoCollection {
     getTodos(test) { return this._todos; }
     get nextId() { return this._nextId; }
     set nextId(value) { this._nextId = value; }
+
+}
+
+class Category {
+
 }
 
 let model = {
@@ -100,7 +105,6 @@ const view = {
                                     </div>
                                 </div>
                             `
-                            
                     todoListHTML.appendChild(newTodoItem);
                 });
             }
@@ -165,7 +169,7 @@ const controller = {
         });
     },
 
-    updateTodo: (e) => {
+    updateTodo: (todo) => {
         const indexToUpdate = this.getIndexById(todo.id);
         this._todos.splice(indexToUpdate, 1, todo);
     },

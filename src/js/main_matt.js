@@ -1,13 +1,11 @@
 "use strict";
-const newTaskForm = document.getElementById("newTask");
-const taskList = document.getElementById("taskList");
+const newTaskForm = document.getElementById("newTodo");
+const taskList = document.getElementById("todoList");
 window.onload = loadTaskItems;
-
-
 
 function createNewTask(id, taskName, taskDescription, taskDueDate, taskDone) {
     const newTaskItem = document.createElement("div");
-    newTaskItem.setAttribute("id", `taskItem-${id}`);
+    newTaskItem.setAttribute("id", `todoItem-${id}`);
     newTaskItem.setAttribute("class", "accordion-item");
     taskList.append(newTaskItem);
     newTaskItem.innerHTML = `
@@ -79,9 +77,6 @@ const handleCreateTask = (e) => {
     localStorage.setItem(id, JSON.stringify(itemToStore));
     createNewTask(id, newTaskName, "", "");
     document.getElementById("newTaskName").value = "";
-    console.log(localStorage.length);
-    document.getElementById("newTaskName").value = "";
-    createNewTask(id, newTaskName, "", "");
     storeItem(id, itemToStore);
 };
 
