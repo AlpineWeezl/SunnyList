@@ -1,5 +1,5 @@
 let todoItems = [];
-const categories = ['Category A', 'Category B', 'Category C', 'Category D', 'Category E', 'Category F'];
+//const categories = ['Category A', 'Category B', 'Category C', 'Category D', 'Category E', 'Category F'];
 
 
 function renderTodo(todo) {
@@ -86,7 +86,7 @@ function addToDo(text)  {
         description: "Description",
         checked: false,
         categories: [],
-        createdDate: getCurrentDate(Date.now),
+        createdDate: getCurrentDate(Date.now()),
         dueDate: "",
         image: "",
         id: Date.now()
@@ -100,9 +100,15 @@ const date = new Date();
 // Hours part from the timestamp
 const year = date.getFullYear();
 // Minutes part from the timestamp
-const month = (date.getMonth() -1);
+let month = (date.getMonth() +1);
+if(month < 10)  {
+  month = `0${month}`;
+}
 // Seconds part from the timestamp
-const day = date.getDay();
+const day = date.getDate();
+if(day < 10)  {
+  day = `0${day}`;
+}
 const currentDate = day + "." + month + "." + year;
 return currentDate;
 }
@@ -133,19 +139,6 @@ function toggleDone(key) {
     renderTodo(todo);
   }
 
-  function editToDo(key) {
-    // find the corresponding todo object in the todoItems array
-    const index = todoItems.findIndex(item => item.id === Number(key));
-    // Create a new object with properties of the current todo item
-    // and a `deleted` property which is set to true
-    const todo = {
-      deleted: true,
-      ...todoItems[index]
-    };
-    // remove the todo item from the array by filtering it out
-    todoItems = todoItems.filter(item => item.id !== Number(key));
-    renderTodo(todo);
-  }
 
 
 const form = document.querySelector('#create-form');
