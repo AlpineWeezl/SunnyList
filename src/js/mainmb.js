@@ -54,7 +54,7 @@ node.innerHTML = `
                                       <label for="inputState"></label>
                                       <select id="inputState" class="form-control">
                                         <option selected>Categories...<i class="fas fa-caret-down"></i></option>
-                                        ${categories.forEach((b) =>  {`<option>${b}</option>`;})}
+                                        
                                       </select>
                                     </div>
                                    </div> 
