@@ -74,9 +74,14 @@ const handleCreateTask = (e) => {
         ["taskDueDate", ""],
         ["taskDone", false]
     ];
+<<<<<<< HEAD
+    document.getElementById("newTaskName").value = "";
+    createNewTask(id, newTaskName, "", "");
+=======
     localStorage.setItem(id, JSON.stringify(itemToStore));
     createNewTask(id, newTaskName, "", "");
     document.getElementById("newTaskName").value = "";
+>>>>>>> matt_oop_JS
     storeItem(id, itemToStore);
 };
 
